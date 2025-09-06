@@ -1,10 +1,10 @@
 self.addEventListener('install', (e) => {
   e.waitUntil(
-    caches.open('sheets-app').then((cache) => {
+    caches.open('socio-manager').then((cache) => {
       return cache.addAll([
         './index.html',
-        './index.css',
-        './main.js',
+        './style.css',
+        './app.js',
         './manifest.json',
         './icon.png'
       ]);

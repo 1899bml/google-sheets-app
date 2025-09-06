@@ -1,6 +1,6 @@
 {
-  "name": "Google Sheets Viewer",
-  "short_name": "SheetsApp",
+  "name": "Gestão de Sócios",
+  "short_name": "Sócios",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffffff",

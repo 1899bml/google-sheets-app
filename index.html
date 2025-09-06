@@ -3,28 +3,89 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Google Sheets App</title>
-  <link rel="stylesheet" href="index.css" />
+  <title>Gestão de Sócios</title>
+  <link rel="stylesheet" href="style.css" />
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#4285f4" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script src="https://apis.google.com/js/api.js" async defer></script>
 </head>
 <body>
-  <div class="container">
-    <h1>📊 Google Sheets Viewer</h1>
-    <button id="loginButton" disabled>Entrar com Google</button>
-    <button id="logoutButton" style="display:none;">Logout</button>
+  <nav class="navbar">
+    <h2>Gestão de Sócios</h2>
+    <ul>
+      <li><a href="#registo">📝 Registo</a></li>
+      <li><a href="#lista">📋 Lista</a></li>
+      <li><a href="#relatorios">📊 Relatórios</a></li>
+      <li><button id="logoutButton" style="display:none;">🔓 Logout</button></li>
+    </ul>
+  </nav>
 
-    <form id="sheetForm" style="margin-top:20px;">
-      <input type="text" id="input1" placeholder="Nome" required />
-      <input type="text" id="input2" placeholder="Email" required />
-      <button type="submit">Adicionar à folha</button>
-    </form>
+  <main>
+    <section id="registo">
+      <h3>📝 Registo de Sócio</h3>
+      <form id="socioForm">
+        <input type="text" id="nome" placeholder="Nome completo" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="text" id="telefone" placeholder="Telefone" required />
+        <input type="date" id="data" required />
+        <select id="estado">
+          <option value="Ativo">Ativo</option>
+          <option value="Inativo">Inativo</option>
+          <option value="Suspenso">Suspenso</option>
+        </select>
+        <select id="cobrador">
+          <option value="Paulo">Paulo</option>
+          <option value="Ana">Ana</option>
+          <option value="Carlos">Carlos</option>
+        </select>
+        <input type="number" id="valorCota" placeholder="Valor da cota (€)" required />
+        <select id="estadoCota">
+          <option value="Pago">Pago</option>
+          <option value="Pendente">Pendente</option>
+          <option value="Isento">Isento</option>
+        </select>
+        <input type="date" id="dataPagamento" />
+        <textarea id="observacoes" placeholder="Observações"></textarea>
+        <button type="submit">Registar Sócio</button>
+      </form>
+    </section>
 
-    <div id="loading" style="display:none;">🔄 A carregar dados...</div>
-    <div id="output"></div>
-  </div>
-  <script src="main.js"></script>
+    <section id="lista">
+      <h3>📋 Lista de Sócios</h3>
+      <div id="filtros">
+        <select id="filtroCobrador">
+          <option value="">Todos os cobradores</option>
+          <option value="Paulo">Paulo</option>
+          <option value="Ana">Ana</option>
+          <option value="Carlos">Carlos</option>
+        </select>
+        <select id="filtroEstadoCota">
+          <option value="">Todos os estados de cota</option>
+          <option value="Pago">Pago</option>
+          <option value="Pendente">Pendente</option>
+          <option value="Isento">Isento</option>
+        </select>
+      </div>
+      <table id="socioTable">
+        <thead>
+          <tr>
+            <th>Nome</th><th>Email</th><th>Telefone</th><th>Data</th><th>Estado</th>
+            <th>Cobrador</th><th>Valor</th><th>Estado Cota</th><th>Pagamento</th><th>Obs</th><th>Ações</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section id="relatorios">
+      <h3>📊 Relatórios</h3>
+      <canvas id="graficoCobrador" width="400" height="200"></canvas>
+      <canvas id="graficoEstadoCota" width="400" height="200"></canvas>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
 </body>
 </html>
