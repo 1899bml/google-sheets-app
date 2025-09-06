@@ -80,7 +80,7 @@ document.getElementById('sheetForm').addEventListener('submit', async (e) => {
   try {
     await gapi.client.sheets.spreadsheets.values.append({
       spreadsheetId: spreadsheetId,
-      range: 'Página1!A1',
+      range: 'Folha1!A1',
       valueInputOption: 'RAW',
       insertDataOption: 'INSERT_ROWS',
       resource: {
@@ -142,3 +142,4 @@ window.onload = () => {
       .catch((err) => console.error('💥 SW erro:', err));
   }
 };
+
