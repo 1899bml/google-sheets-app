@@ -81,7 +81,7 @@ document.getElementById('sheetForm').addEventListener('submit', async (e) => {
     await gapi.client.sheets.spreadsheets.values.append({
       spreadsheetId: spreadsheetId,
       range: 'Folha1!A1',
-      valueInputOption: 'RAW',
+      valueInputOption: 'USER_ENTERED',
       insertDataOption: 'INSERT_ROWS',
       resource: {
         values: [[nome, email]]
@@ -142,4 +142,5 @@ window.onload = () => {
       .catch((err) => console.error('💥 SW erro:', err));
   }
 };
+
 
