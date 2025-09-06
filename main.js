@@ -1,7 +1,7 @@
 const clientId = '288549571599-k9t31tvp3m3pk24mekc30nbpcep9n7ud.apps.googleusercontent.com';
 const apiKey = 'AIzaSyBbb8_6fOmFweuLmla-mQz3MolkQqLPk1w';
 const spreadsheetId = '1v5Zf8fxY-cIq8xw0G8hoeHDRUAXzpDmGEj16qf4_LhQ';
-const range = 'Folha1!A1:Z1000'; // Ajusta conforme a tua folha
+const range = 'Folha1'; // Ajusta conforme a tua folha
 const scopes = 'https://www.googleapis.com/auth/spreadsheets';
 
 let tokenClient;
@@ -142,5 +142,6 @@ window.onload = () => {
       .catch((err) => console.error('💥 SW erro:', err));
   }
 };
+
 
 
