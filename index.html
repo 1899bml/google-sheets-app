@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Google Sheets App</title>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#4285f4" />
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="https://apis.google.com/js/api.js" async defer></script>
+</head>
+<body>
+  <div class="container">
+    <h1>📊 Google Sheets Viewer</h1>
+    <button id="loginButton" disabled>Entrar com Google</button>
+    <button id="logoutButton" style="display:none;">Logout</button>
+
+    <form id="sheetForm" style="margin-top:20px;">
+      <input type="text" id="input1" placeholder="Nome" required />
+      <input type="text" id="input2" placeholder="Email" required />
+      <button type="submit">Adicionar à folha</button>
+    </form>
+
+    <div id="loading" style="display:none;">🔄 A carregar dados...</div>
+    <div id="output"></div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
